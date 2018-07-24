@@ -29,7 +29,7 @@ DOC
     # Workaround for PE-20308
     if reference.is_a?(String)
       type_name, title = Puppet::Resource.type_and_title(reference, nil)
-      if type_name == "File"
+      if type_name == "File" || type_name == "Jenkins::Plugin"
         type = type_name
       else
         type = Puppet::Pops::Evaluator::Runtime3ResourceSupport.find_resource_type_or_class(find_global_scope, type_name.downcase)
